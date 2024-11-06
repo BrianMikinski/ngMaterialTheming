@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { FlexBoxComponent } from './flex-box/flex-box.component';
+import { CssGridComponent } from './css-grid/css-grid.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     RouterOutlet,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatCheckboxModule,
-
+    MainNavComponent,
+    FlexBoxComponent,
+    CssGridComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
