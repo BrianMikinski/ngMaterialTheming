@@ -1,7 +1,45 @@
+<mat-toolbar color="accent" class="mat-elevation-z5">
+    <button type="button"
+            color="primary"
+            [style.background-color]="'var(--accent)'"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon" style="color:white; border: white;" >
+            menu
+        </mat-icon>
+    </button>
+    <a routerLink="/theme" routerLinkActive="active">
+        Theme Examples
+    </a>
+    <a routerLink="/flexbox" routerLinkActive="active">
+        Flexbox Examples
+    </a>
+    <a routerLink="/cssgrid" routerLinkActive="active">
+        CSS Grid Examples
+    </a>
+    <span class="spacer"></span>
+    <mat-slide-toggle class="example-margin"
+                      color="primary"
+                      (click)="toggleTheme()"
+                      checked="true">
+        Toggle Theme
+    </mat-slide-toggle>
+    <mat-form-field appearance="fill"  >
+        <mat-label>Choose a theme</mat-label>
+        <mat-select color="primary" class="theme-selector" (selectionChange)="onThemeChange($event.value)">
+          <mat-option value="light">Light</mat-option>
+          <mat-option value="dark">Dark</mat-option>
+          <mat-option value="custom">Custom</mat-option>
+        </mat-select>
+      </mat-form-field>
+</mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav #drawer
                  class="sidenav"
-                 fixedInViewport
+                 [fixedInViewport]="options.value.fixed"
+                 [fixedTopGap]="options.value.top"
+                 [fixedBottomGap]="options.value.bottom"
                  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                  [mode]="(isHandset$ | async) ? 'over' : 'side'">
         <mat-toolbar>
@@ -19,33 +57,8 @@
             </a>
         </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content class="sidenav-content">
-        <mat-toolbar color="accent">
-            <button type="button"
-                    aria-label="Toggle sidenav"
-                    mat-icon-button
-                    (click)="drawer.toggle()">
-                <mat-icon aria-label="Side nav toggle icon">
-                    menu
-                </mat-icon>
-            </button>
-            <a routerLink="/theme" routerLinkActive="active">
-                Theme Examples
-            </a>
-            <a routerLink="/flexbox" routerLinkActive="active">
-                Flexbox Examples
-            </a>
-            <a routerLink="/cssgrid" routerLinkActive="active">
-                CSS Grid Examples
-            </a>
-            <span class="spacer"></span>
-            <mat-slide-toggle class="example-margin"
-                              color="primary"
-                              (click)="toggleTheme()"
-                              checked="true">
-                Toggle Theme
-            </mat-slide-toggle>
-        </mat-toolbar>
+    <mat-sidenav-content class="sidenav-content ">
+        
         <ng-content>
             <!--This is where our router places our content or where the router routes our content-->
         </ng-content>

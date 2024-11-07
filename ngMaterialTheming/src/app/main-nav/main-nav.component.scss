@@ -4,6 +4,10 @@
       padding-top: 50px;
     }
   }
+  .mat-toolbar {
+    position: sticky;
+    z-index: 2;
+  }
 
   .sidenav .mat-toolbar {
     background: inherit;
@@ -24,4 +28,9 @@
     margin: 0 10px;
     color: white;
     text-decoration: none;
+  }
+
+  .theme-selector {
+    margin-left: 10px;
+    margin-top: 10px;
   }
