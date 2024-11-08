@@ -1,4 +1,4 @@
-<mat-toolbar color="accent" class="mat-elevation-z5">
+<mat-toolbar color="accent" class="mat-elevation-z2">
     <button type="button"
             color="primary"
             [style.background-color]="'var(--accent)'"
@@ -9,6 +9,9 @@
             menu
         </mat-icon>
     </button>
+    <a routerLink="/themepark" routerLinkActive="active">
+        Theme Park
+    </a>
     <a routerLink="/theme" routerLinkActive="active">
         Theme Examples
     </a>
@@ -34,7 +37,7 @@
         </mat-select>
       </mat-form-field>
 </mat-toolbar>
-<mat-sidenav-container>
+<mat-sidenav-container class="sidenav-container-height ">
     <mat-sidenav #drawer
                  class="sidenav"
                  [fixedInViewport]="options.value.fixed"
@@ -46,6 +49,9 @@
             Side Nav Menu
         </mat-toolbar>
         <mat-nav-list>
+            <a mat-list-item routerLink="/themepark" routerLinkActive="active">
+                Theme Park
+            </a>
             <a mat-list-item routerLink="/theme" routerLinkActive="active">
                 Theme Examples
             </a>
